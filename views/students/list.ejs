@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/css/bootstrap.css">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div>
+                <h1 class="mb-5"><%= title %></h1>
+                <h3>
+                    <a href="/" class="btn btn-secondary me-3">Back</a>
+                    <a href="/students/addForm" class="btn btn-success">Create</a>
+                </h3>
+                <% if (log) { %>
+                    <div class="text-success"> <%= log %> </div>
+                <% } %>
+            </div>
+            <div>
+                <table class="table table-hover">
+                    <thead>
+                        <th>#</th>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th colspan="2">Actions</th>
+                    </thead>
+                    <tbody>
+                        <% students.forEach((student, index)=> { %>
+                            <tr>
+                                <td><%= index+1 %></td>
+                                <td><%= student.st_id %></td>
+                                <td><%= student.name %></td>
+                                <td>
+                                    <a href="/students/edit/<%= student.id %>" class="btn btn-warning w-25 text-white">Edit</a>
+                                    <a href="/students/delete/<%= student.id %>" class="btn btn-danger w-25"
+                                        onclick="return confirm('แน่ใจนะว่าจะลบ?')">Delete</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

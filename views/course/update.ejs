@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-5"><%= title %></h1>
+        <% if (error) { %>
+            <div class="text-danger"> <%= error %> </div>
+        <% } %>
+        <form action='/course/update' method='post'>
+            <input type='hidden' name='course[id]' value='<%= course[0].id %>'/>
+            <h6 class="mb-3">
+                <p>c_id</p>
+                <input type='text' name='course[c_id]' placeholder='รหัสวิชา' value='<%= course[0].c_id %>'/>
+            </h6>
+            <h6 class="mb-3">
+                <p>name</p>
+                <input type='text' name='course[name]' placeholder='ชื่อวิชา' value='<%= course[0].name %>'/>
+            </h6>
+            <h6 class="mb-3">
+                <p>creditPoint</p>
+                <input type='number' name='course[creditPoint]' placeholder='หน่วยกิต' value='<%= course[0].creditPoint %>'/>
+            </h6>
+            <p>
+                <a href="/course" class="btn btn-secondary me-3">Back</a>
+                <input type='submit' value='Update' class="btn btn-success"/>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

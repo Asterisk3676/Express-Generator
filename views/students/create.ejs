@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-5"><%= title %></h1>
+        <% if (error) { %>
+            <div class="text-danger"> <%= error %> </div>
+        <% } %>
+        <form action='/students/create' method='post'>
+            <h6 class="mb-3">
+                <p>st_id</p>
+                <input type='text' name='students[st_id]' placeholder='รหัสนักศึกษา'/>
+            </h6>
+            <h6 class="mb-3">
+                <p>name</p>
+                <input type='text' name='students[name]' placeholder='ชื่อนักศึกษา'/>
+            </h6>
+            <p>
+                <a href="/students" class="btn btn-secondary me-3">Back</a>
+                <input type='submit' value='Create' class="btn btn-success"/>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
